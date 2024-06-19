@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetnews.commons.NetWorkImage
+import com.example.jetnews.commons.AppNetWorkImage
 import com.example.jetnews.features.news.models.NewsItemModel
 import com.example.jetnews.ui.theme.GameFont
 
@@ -25,12 +25,12 @@ import com.example.jetnews.ui.theme.GameFont
 fun NewsItem(modifier: Modifier = Modifier, newsItemModel: NewsItemModel) {
     Box(
         modifier = modifier
-            .padding(bottom = 20.dp)
+            .padding(top = 24.dp)
             .clip(RoundedCornerShape(10.dp))
         //.background(boxColor)
     ) {
         Column {
-            NetWorkImage(
+            AppNetWorkImage(
                 url = newsItemModel.imageUrl,
                 contentDescription = ""
             )
@@ -41,7 +41,7 @@ fun NewsItem(modifier: Modifier = Modifier, newsItemModel: NewsItemModel) {
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Medium
                 ),
-                modifier = Modifier.padding(vertical = 6.dp)
+                modifier = Modifier.padding(vertical = 8.dp)
 
             )
             newsItemModel.newsSite?.let {
