@@ -1,6 +1,7 @@
 package com.example.jetnews.features.news.composables
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,18 +17,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.jetnews.commons.AppNetWorkImage
 import com.example.jetnews.features.news.models.NewsItemModel
+import com.example.jetnews.features.news.navigation.NavigationItem
 import com.example.jetnews.ui.theme.GameFont
 
 //@Preview(showSystemUi = true)
 @Composable
-fun NewsItem(modifier: Modifier = Modifier, newsItemModel: NewsItemModel) {
+fun NewsItem(
+    modifier: Modifier = Modifier,
+    newsItemModel: NewsItemModel,
+    navController: NavHostController,
+) {
     Box(
         modifier = modifier
             .padding(top = 24.dp)
             .clip(RoundedCornerShape(10.dp))
-        //.background(boxColor)
+            .clickable {
+                navController.currentBackStackEntry?.savedStateHandle?.set("news", newsItemModel)
+
+                navController.navigate(NavigationItem.NewsDetails.route)
+            }
     ) {
         Column {
             AppNetWorkImage(

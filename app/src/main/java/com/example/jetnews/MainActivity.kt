@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.jetnews.features.news.screens.Home
+import androidx.navigation.compose.rememberNavController
+import com.example.jetnews.features.news.navigation.AppNavHost
+import com.example.jetnews.features.news.screens.HomeScreen
 import com.example.jetnews.ui.theme.JetNewsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,9 +20,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetNewsTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    Home(paddingValues = innerPadding)
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    AppNavHost(navHostController = rememberNavController())
                 }
             }
         }

@@ -13,7 +13,7 @@ import coil.compose.SubcomposeAsyncImage
 import com.example.jetnews.R
 
 @Composable
-fun AppNetWorkImage(url: String, contentDescription: String, onErrorDrawable: Int = R.drawable.space) {
+fun AppNetWorkImage(url: String, contentDescription: String = "", onErrorDrawable: Int = R.drawable.space) {
     SubcomposeAsyncImage(
         model = url,
         //contentScale = ContentScale.FillWidth,

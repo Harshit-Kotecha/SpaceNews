@@ -14,9 +14,9 @@ import androidx.compose.ui.unit.sp
 import com.example.jetnews.ui.theme.GameFont
 
 @Composable
-fun AppBar(modifier: Modifier = Modifier) {
+fun AppBar(modifier: Modifier = Modifier, title : String = "Space News") {
     Text(
-        "Space News",
+        title,
         style = TextStyle(
             color = Color.White,
             fontSize = 22.sp,
