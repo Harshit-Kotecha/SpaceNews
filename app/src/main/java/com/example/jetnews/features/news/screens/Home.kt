@@ -30,13 +30,20 @@ import com.example.jetnews.features.news.viewmodels.NewsController
 fun Home(modifier: Modifier) {
     val newsController = hiltViewModel<NewsController>()
     val pullRefreshState =
-        rememberPullRefreshState(refreshing = newsController.isRefreshing.value, onRefresh = {
+        rememberPullRefreshState(refreshing = newsController.isRefreshing.value,
+            //refreshThreshold = 120.dp,
+            onRefresh = {
             newsController.onRefresh()
         })
 
-    Column {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally) {
         AppBar()
-
+        PullRefreshIndicator(
+            refreshing = newsController.isRefreshing.value,
+            state = pullRefreshState,
+            contentColor = Color.Black,
+        )
         Column(
             modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -48,10 +55,9 @@ fun Home(modifier: Modifier) {
                         modifier = modifier.pullRefresh(pullRefreshState),
                         contentAlignment = Alignment.Center,
                     ) {
-
                         LazyColumn(
                             modifier = Modifier.padding(
-                                top = 8.dp,
+                                //top = 8.dp,
                                 start = 16.dp,
                                 end = 16.dp,
                                 bottom = 24.dp
@@ -59,11 +65,6 @@ fun Home(modifier: Modifier) {
                         ) {
                             items(it) { newsItem -> NewsItem(newsItemModel = newsItem) }
                         }
-                        PullRefreshIndicator(
-                            refreshing = newsController.isRefreshing.value,
-                            state = pullRefreshState,
-                            contentColor = Color.Black
-                        )
                     }
                 } ?: Text(text = "Error loading the news!")
 

@@ -19,6 +19,7 @@ fun NetWorkImage(url: String, contentDescription: String, onErrorDrawable: Int =
     SubcomposeAsyncImage(
         model = url,
         //contentScale = ContentScale.FillWidth,
+        modifier = Modifier.fillMaxWidth(),
         contentDescription = contentDescription,
         loading = {
             Box(modifier = Modifier.fillMaxWidth().height(200.dp), Alignment.Center) {
