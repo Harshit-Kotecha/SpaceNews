@@ -6,6 +6,7 @@ import androidx.compose.material.pullrefresh.PullRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.jetnews.ui.theme.Primary
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -16,6 +17,6 @@ fun AppPullRefreshIndicator(
     PullRefreshIndicator(
         refreshing = isRefreshing,
         state = pullRefreshState,
-        contentColor = if (isRefreshing) Color.Black else Color.Transparent,
+        contentColor = if (isRefreshing) Primary else Color.Transparent,
     )
 }

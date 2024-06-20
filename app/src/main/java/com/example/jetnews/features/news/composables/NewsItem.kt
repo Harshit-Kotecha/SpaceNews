@@ -23,6 +23,7 @@ import com.example.jetnews.commons.AppNetWorkImage
 import com.example.jetnews.features.news.models.NewsItemModel
 import com.example.jetnews.features.news.navigation.NavigationItem
 import com.example.jetnews.ui.theme.GameFont
+import com.example.jetnews.ui.theme.Primary
 
 //@Preview(showSystemUi = true)
 @Composable
@@ -67,7 +68,7 @@ fun NewsItem(
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(color = Color.Black)
+                        .background(color = Primary)
                         .padding(vertical = 6.dp, horizontal = 16.dp)
                 )
             }

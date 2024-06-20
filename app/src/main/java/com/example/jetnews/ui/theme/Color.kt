@@ -12,4 +12,5 @@ val Pink40 = Color(0xFF7D5260)
 val dateBg = Color(0xFFD50000)
 val boxColor = Color(0xFFE0F7FA)
 val DarkBlue = Color(0xFF303F9F)
+val Primary = Color(0xFF212121)
 

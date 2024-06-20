@@ -12,9 +12,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetnews.ui.theme.GameFont
+import com.example.jetnews.ui.theme.Primary
 
 @Composable
-fun AppBar(modifier: Modifier = Modifier, title : String = "Space News") {
+fun AppBar(modifier: Modifier = Modifier, title : String = "Jet News") {
     Text(
         title,
         style = TextStyle(
@@ -26,7 +27,7 @@ fun AppBar(modifier: Modifier = Modifier, title : String = "Space News") {
         textAlign = TextAlign.Center,
         modifier = modifier
             .fillMaxWidth()
-            .background(color = Color.Black)
+            .background(color = Primary)
             .padding(vertical = 12.dp)
     )
 }
