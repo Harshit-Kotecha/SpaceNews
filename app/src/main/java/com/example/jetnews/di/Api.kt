@@ -1,5 +1,6 @@
 package com.example.jetnews.di
 
+import com.example.jetnews.features.news.services.NewsRepo
 import com.example.jetnews.features.news.services.NewsService
 import dagger.Module
 import dagger.Provides
@@ -38,6 +39,12 @@ object Api {
     @Singleton
     fun provideNewsService(retrofit: Retrofit): NewsService {
         return retrofit.create(NewsService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsRepo(newsService: NewsService): NewsRepo {
+        return NewsRepo(newsService)
     }
 
 }

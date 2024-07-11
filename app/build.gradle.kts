@@ -84,8 +84,11 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.androidx.material)
-    implementation("androidx.navigation:navigation-compose:2.7.7")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.androidx.paging.compose)
 
 }
 
